@@ -141,7 +141,7 @@ module.exports = NodeHelper.create({
   getStorageTotal : function() {
     exec (this.scripts['STORAGE_TOTAL'], (err, stdout, stderr)=>{
       if (err == null) {
-        this.status['STORAGE_TOTAL'] = stdout.trim()
+        this.status['STORAGE_TOTAL'] = stdout.slice(52,55)
       }
     })
   },
