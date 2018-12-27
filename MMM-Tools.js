@@ -101,7 +101,6 @@ Module.register("MMM-Tools", {
   getDom : function() {
     var wrapper = document.createElement("div")
     wrapper.className = "Tools"
-    wrapper.appendChild(this.getDomIP())
     wrapper.appendChild(this.getDomMemory())
     wrapper.appendChild(this.getDomStorage())
     wrapper.appendChild(this.getDomCPUTemp())
@@ -245,22 +244,6 @@ Module.register("MMM-Tools", {
     }
   },
 
-  getDomIP : function () {
-    var wrapper = document.createElement("div")
-    wrapper.className = "status_item status_ip"
-    var label = document.createElement("div")
-    label.className = "item_label"
-    label.innerHTML = "IP"
-    var container = document.createElement("div")
-    container.className = "container"
-    var value = document.createElement("div")
-    value.className = "value"
-    value.innerHTML = this.status['IP']
-    container.appendChild(value)
-    wrapper.appendChild(label)
-    wrapper.appendChild(container)
-    return wrapper
-  },
 
   getDomMemory : function () {
     var wrapper = document.createElement("div")
@@ -383,7 +366,7 @@ Module.register("MMM-Tools", {
     wrapper.className = "status_item status_cpu_usage"
     var label = document.createElement("div")
     label.className = "item_label"
-    label.innerHTML = "CPU %"
+    label.innerHTML = "CPU "
     var container = document.createElement("div")
     container.className = "container"
     var total = document.createElement("div")
