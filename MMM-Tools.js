@@ -203,7 +203,6 @@ Module.register("MMM-Tools", {
   },
 
   cmd_status : function (command, handler) {
-
     var text = ""
     text += "*" + this.translate("IP") + " :* `" + this.status['IP'] + "`,\n"
     text += "*" + this.translate("RAM Used") + " :* `" + this.status['MEMORY_USED_PERCENT'] + "%`,\n"
@@ -289,25 +288,40 @@ Module.register("MMM-Tools", {
   },
 
   getDomStorage : function() {
+    // var wrapper = document.createElement("div")
+    // wrapper.className = "status_item status_storage"
+    // var label = document.createElement("div")
+    // label.className = "item_label"
+    // label.innerHTML = "SD"
+    // var container = document.createElement("div")
+    // container.className = "container"
+    // var total = document.createElement("div")
+    // total.className = "total"
+    // total.innerHTML = this.status["STORAGE_TOTAL"]
+    // var used = document.createElement("div")
+    // used.className = "used bar"
+    // used.style.width = Math.round(this.status["STORAGE_USED_PERCENT"]) + "%"
+    // used.innerHTML = this.status["STORAGE_USED"]
+    // var step = myMath.round(this.status["STORAGE_USED_PERCENT"], -1)
+    // if (step > 100) step = 100
+    // used.className += " step" + step
+    // total.appendChild(used)
+    // container.appendChild(total)
+    // wrapper.appendChild(label)
+    // wrapper.appendChild(container)
+    // return wrapper
+
     var wrapper = document.createElement("div")
-    wrapper.className = "status_item status_storage"
+    wrapper.className = "status_item status_cpu_temp"
     var label = document.createElement("div")
     label.className = "item_label"
-    label.innerHTML = "SD"
+    label.innerHTML = "HDD"
     var container = document.createElement("div")
     container.className = "container"
-    var total = document.createElement("div")
-    total.className = "total"
-    total.innerHTML = this.status["STORAGE_TOTAL"]
-    var used = document.createElement("div")
-    used.className = "used bar"
-    used.style.width = Math.round(this.status["STORAGE_USED_PERCENT"]) + "%"
-    used.innerHTML = this.status["STORAGE_USED"]
-    var step = myMath.round(this.status["STORAGE_USED_PERCENT"], -1)
-    if (step > 100) step = 100
-    used.className += " step" + step
-    total.appendChild(used)
-    container.appendChild(total)
+    var value = document.createElement("div")
+    value.className = "value"
+    value.innerHTML = this.status['STORAGE_TOTAL'] + '\°C'
+    container.appendChild(value)
     wrapper.appendChild(label)
     wrapper.appendChild(container)
     return wrapper

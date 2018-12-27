@@ -22,7 +22,7 @@ const scripts = {
   //onStart
   IP : "hostname -I",
   MEMORY_TOTAL : "free -h | grep Mem | awk '{print $2}'",
-  STORAGE_TOTAL : "df -h --total | grep total | awk '{print $2}'",
+  STORAGE_TOTAL : "",
   //onSchedule
   CPU_TEMPERATURE : "cat /sys/class/hwmon/hwmon1/temp2_input",
   GPU_TEMPERATURE : "cat /sys/class/hwmon/hwmon0/temp1_input",
