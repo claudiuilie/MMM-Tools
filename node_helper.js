@@ -24,8 +24,8 @@ const scripts = {
   MEMORY_TOTAL : "free -h | grep Mem | awk '{print $2}'",
   STORAGE_TOTAL : "df -h --total | grep total | awk '{print $2}'",
   //onSchedule
-  CPU_TEMPERATURE : "cat /sys/devices/virtual/thermal/thermal_zone0/temp",
-  GPU_TEMPERATURE : "cat /sys/devices/virtual/thermal/thermal_zone1/temp",
+  CPU_TEMPERATURE : "cat /sys/class/hwmon/hwmon1/temp2_input",
+  GPU_TEMPERATURE : "cat /sys/class/hwmon/hwmon0/temp1_input",
   //@FIXME uptime format check!!!
   UPTIME : "cat /proc/uptime | awk '{print $1}'", //cat /proc/uptime
   CPU_USAGE : "grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage}'", //grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}'
