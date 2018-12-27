@@ -37,7 +37,7 @@ Module.register("MMM-Tools", {
     this.status = {
       IP : "",
       MEMORY_TOTAL : "",
-      STORAGE_TOTAL : "",
+      HDD_TEMPERATURE : "",
       CPU_TEMPERATURE : "",
       GPU_TEMPERATURE : "",
       UPTIME : "",
@@ -271,28 +271,6 @@ Module.register("MMM-Tools", {
   },
 
   getDomStorage : function() {
-    // var wrapper = document.createElement("div")
-    // wrapper.className = "status_item status_storage"
-    // var label = document.createElement("div")
-    // label.className = "item_label"
-    // label.innerHTML = "SD"
-    // var container = document.createElement("div")
-    // container.className = "container"
-    // var total = document.createElement("div")
-    // total.className = "total"
-    // total.innerHTML = this.status["STORAGE_TOTAL"]
-    // var used = document.createElement("div")
-    // used.className = "used bar"
-    // used.style.width = Math.round(this.status["STORAGE_USED_PERCENT"]) + "%"
-    // used.innerHTML = this.status["STORAGE_USED"]
-    // var step = myMath.round(this.status["STORAGE_USED_PERCENT"], -1)
-    // if (step > 100) step = 100
-    // used.className += " step" + step
-    // total.appendChild(used)
-    // container.appendChild(total)
-    // wrapper.appendChild(label)
-    // wrapper.appendChild(container)
-    // return wrapper
 
     var wrapper = document.createElement("div")
     wrapper.className = "status_item status_cpu_temp"
@@ -303,7 +281,7 @@ Module.register("MMM-Tools", {
     container.className = "container"
     var value = document.createElement("div")
     value.className = "value"
-    value.innerHTML = this.status['STORAGE_TOTAL'] + '\°C'
+    value.innerHTML = this.status['HDD_TEMPERATURE'] + '\°C'
     container.appendChild(value)
     wrapper.appendChild(label)
     wrapper.appendChild(container)

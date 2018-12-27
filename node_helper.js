@@ -22,7 +22,7 @@ const scripts = {
   //onStart
   IP : "hostname -I",
   MEMORY_TOTAL : "free -h | grep Mem | awk '{print $2}'",
-  STORAGE_TOTAL : "sudo hddtemp /dev/disk/by-path/../../sda",
+  HDD_TEMPERATURE : "sudo hddtemp /dev/disk/by-path/../../sda",
   //onSchedule
   CPU_TEMPERATURE : "cat /sys/class/hwmon/hwmon1/temp2_input",
   GPU_TEMPERATURE : "cat /sys/class/hwmon/hwmon0/temp1_input",
@@ -58,7 +58,7 @@ module.exports = NodeHelper.create({
     this.status = {
       IP : "Loading...",
       MEMORY_TOTAL : "0",
-      STORAGE_TOTAL : "0",
+      HDD_TEMPERATURE : "0",
       CPU_TEMPERATURE : "0.0",
       GPU_TEMPERATURE : "0.0",
       UPTIME : "00:00",
@@ -139,9 +139,9 @@ module.exports = NodeHelper.create({
   },
 
   getStorageTotal : function() {
-    exec (this.scripts['STORAGE_TOTAL'], (err, stdout, stderr)=>{
+    exec (this.scripts['HDD_TEMPERATURE'], (err, stdout, stderr)=>{
       if (err == null) {
-        this.status['STORAGE_TOTAL'] = stdout.slice(52,55)
+        this.status['HDD_TEMPERATURE'] = stdout.slice(52,55)
       }
     })
   },
